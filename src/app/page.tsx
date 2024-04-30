@@ -1,6 +1,5 @@
 import Profile from "@/components/Profile";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import Image from "next/image";
+import { User } from "lucide-react";
 
 export default function Home() {
   return (
@@ -9,10 +8,10 @@ export default function Home() {
 
       <Profile
         className="w-20 h-20  "
+        fallback={<User />}
         image="https://github.com/shadcn.png"
-        fallBack="6+"
         status="ACTIVE"
-        alt=""
+        alt="image"
       />
     </main>
   );

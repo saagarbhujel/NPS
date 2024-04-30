@@ -1,21 +1,22 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { User } from "lucide-react";
 
 interface ProfileProps {
   image?: string;
-  fallBack: string;
+  fallback?: React.ReactNode;
   alt?: string;
   status: "ACTIVE" | "INACTIVE";
   className?: string;
 }
 
-const Profile = ({ image, fallBack, alt, status, className }: ProfileProps) => {
+const Profile = ({ image, alt, status, className, fallback }: ProfileProps) => {
   return (
     <div className={`${className}, relative`}>
       <Avatar className="w-full h-full ">
         {image ? (
           <AvatarImage src={image} alt={alt || "alt"} />
         ) : (
-          <AvatarFallback>{fallBack}</AvatarFallback>
+          <AvatarFallback>{fallback}</AvatarFallback>
         )}
       </Avatar>
       {status === "ACTIVE" && (

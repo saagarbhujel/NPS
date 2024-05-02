@@ -1,27 +1,65 @@
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { User } from "lucide-react";
+import Avatar from "./ui/Avatar/Avatar";
+import AvatarFallback from "./ui/Avatar/AvatarFallback";
+import AvatarImage from "./ui/Avatar/AvatarImage";
+// interface ProfileProps {
+//   image?: string;
+//   fallback?: React.ReactNode;
+//   alt?: string;
+//   status: "ACTIVE" | "INACTIVE";
+//   className?: string;
+// }
 
-interface ProfileProps {
-  image?: string;
-  fallback?: React.ReactNode;
-  alt?: string;
-  status: "ACTIVE" | "INACTIVE";
-  className?: string;
-}
-
-const Profile = ({ image, alt, status, className, fallback }: ProfileProps) => {
+const Profile = () => {
   return (
-    <div className={`${className}, relative`}>
-      <Avatar className="w-full h-full ">
-        {image ? (
-          <AvatarImage src={image} alt={alt || "alt"} />
-        ) : (
-          <AvatarFallback>{fallback}</AvatarFallback>
-        )}
-      </Avatar>
-      {status === "ACTIVE" && (
-        <div className="w-5 h-5 bg-green-500 absolute bottom-2 left-16 border-2 border-white rounded-full" />
-      )}
+    <div className="flex gap-6">
+      <Avatar
+        size={"xs"}
+        status={"ONLINE"}
+        state={"HOVER"}
+        src={"https://github.com/shadcn.png"}
+      />
+
+      <Avatar
+        size={"sm"}
+        status={"ONLINE"}
+        state={"FOCUSED"}
+        src={"https://github.com/shadcn.png"}
+      />
+      <Avatar
+        size={"md"}
+        status={"ONLINE"}
+        state={"FOCUSED"}
+        src={"https://github.com/shadcn.png"}
+      />
+
+      <Avatar
+        size={"lg"}
+        status={"ONLINE"}
+        state={"FOCUSED"}
+        placeholder={<User />}
+      />
+
+      <Avatar
+        size={"xl"}
+        status={"ONLINE"}
+        state={"HOVER"}
+        src={"https://github.com/shadcn.png"}
+      />
+
+      <Avatar
+        size={"2xl"}
+        status={"ONLINE"}
+        state={"FOCUSED"}
+        placeholder="+5"
+      />
+
+      <Avatar
+        size={"3xl"}
+        status={"ONLINE"}
+        state={"FOCUSED"}
+        placeholder={<User />}
+      />
     </div>
   );
 };
